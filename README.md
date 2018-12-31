@@ -1,5 +1,5 @@
 # RGB Color Guessing Game
-An attempt at rebuilding a project from Colt Steele's Web Developer Bootcamp Udemy course.
+A fun game about colors. You are given 3 to 6 colors to pick from. Guess the correct color that matches with the RGB value.
 
 ## Current Project Status
 * Markup completed.
