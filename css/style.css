@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+body {
+    /* height: 100%; */
+    display: grid;
+    border: none;
+    text-transform: uppercase;
+    background-color: #000;
+    font-family: sans-serif;
+}
+
+button {
+    padding: 100px;
+    border: none;
+    text-transform: uppercase;
+    color: steelblue;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: steelblue;
+}
+
+header > .container > h1 {
+    color: #fff;
+}
+
+nav {
+    background-color: #fff;
+}
+
+nav > .container {
+    display: grid;
+    grid-template-columns: 3fr repeat(2, auto);
+}
+
+nav > .container > button {
+    padding: 10px 15px;
+}
+
+nav > .container > button#newColors {
+    justify-self: start;
+}
+
+main {
+    height: 500px;
+    display: grid;
+}
+
+main > .container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
