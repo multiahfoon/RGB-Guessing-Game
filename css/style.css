@@ -44,6 +44,13 @@ nav > .container {
 
 nav > .container > button {
     padding: 10px 15px;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+nav > .container > button:hover {
+    background-color: steelblue;
+    color: #fff;
 }
 
 nav > .container > button#newColors {
