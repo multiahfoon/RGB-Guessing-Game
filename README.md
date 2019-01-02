@@ -1,7 +1,15 @@
-# RGB Color Guessing Game
+# __RGB Color Guessing Game__
 A fun game about colors. You are given 3 to 6 colors to pick from. Guess the correct color that matches with the RGB value.
 
-## Current Project Status
+## __Current Project Status__
+### __HTML:__ 
+
 * Markup completed.
+
+### __CSS:__ 
+
 * Styling near completion with use of CSS-Grid.
-* No logic has yet to be implemented.
+
+### __Javascript:__ 
+
+* RGB generator added but addeds no real functionality to DOM yet.
