@@ -12,4 +12,4 @@ A fun game about colors. You are given 3 to 6 colors to pick from. Guess the cor
 
 ### __Javascript:__ 
 
-* RGB generator added but addeds no real functionality to DOM yet.
+* Colors are now randomly generated.
