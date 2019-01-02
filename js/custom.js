@@ -1,23 +1,25 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    // need a way to generate rgb numbers
     const rgbColorGenerator = function(){
         const generateNum = [];
         let rgbString;
         for (var i = 1; i <= 3; i++){
-            let randomNum = Math.floor(Math.random() * 1000 - 1);
+            let randomNum = Math.floor(Math.random() * 255) + 1;
             generateNum.push(randomNum);
-            rgbString = `rgb(${generateNum})`;
+            rgbString = `rgb(${generateNum.join(", ")})`;
         }
         console.log(rgbString);
         return rgbString;
     };
-    rgbColorGenerator();
-    
-    /* checking to see if rgbColorGenerator is working properly*/ 
-    const body = document.querySelector('body');
-    const main = document.querySelector('main');
-    main.addEventListener('click', function(){
-        document.body.style.backgroundColor = rgbColorGenerator();
-    });
+
+    const rgbDisplay = document.querySelector('#rgbDisplay');    
+    const colorDisplay = document.querySelectorAll('main > .container > button');
+
+    for(var i = 0; i < colorDisplay.length; i++){
+        colorDisplay[i].style.backgroundColor = rgbColorGenerator();
+    }
+
+    const secretColor = rgbDisplay.innerHTML = colorDisplay[(Math.floor(Math.random() * 6))].style.backgroundColor;
+
+
 });
