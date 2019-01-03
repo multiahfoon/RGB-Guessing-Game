@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
         colorDisplay[i].style.backgroundColor = rgbColorGenerator();
     }
 
-    const secretColor = rgbDisplay.innerHTML = colorDisplay[(Math.floor(Math.random() * 6) + 1)].style.backgroundColor;
+    const secretColor = rgbDisplay.innerHTML = colorDisplay[(Math.floor(Math.random() * 6))].style.backgroundColor;
     const message = document.querySelector('#message');
     const header = document.querySelector('header');
     for(var i = 0; i < colorDisplay.length; i++){
