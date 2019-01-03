@@ -39,7 +39,7 @@ nav {
 
 nav > .container {
     display: grid;
-    grid-template-columns: 3fr repeat(2, auto);
+    grid-template-columns: auto 1fr repeat(2, auto);
 }
 
 nav > .container > button {
@@ -55,6 +55,12 @@ nav > .container > button:hover {
 
 nav > .container > button#newColors {
     justify-self: start;
+}
+
+#message {
+    color: #444;
+    font-size: 19px;
+    align-self: center;
 }
 
 main {
