@@ -13,3 +13,5 @@ A fun game about colors. You are given 3 to 6 colors to pick from. Guess the cor
 ### __Javascript:__ 
 
 * Colors are now randomly generated.
+* Game now responds if picked color is correct or incorrect via message in navigation bar.
+* Header background color updates when correct color is picked.
