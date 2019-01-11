@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const header = document.querySelector('header');
     const newColors = document.querySelector('#newColors');
     const easyMode = document.querySelector('#easyMode');
+    const hardMode = document.querySelector('#hardMode');
+    let mode = 6;
 
     // generates a rbg string
     function rgbColorGenerator(){
@@ -20,29 +22,38 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     // immediate executing function that generates the main colors to pick from
-    const generateMainColors = (function mainColors(){
-        for(var i = 0; i < colorDisplay.length; i++){
+    function generateMainColors(){
+        for(var i = 0; i < mode; i++){
             colorDisplay[i].style.backgroundColor = rgbColorGenerator();
         }
-        return mainColors;
-    })();
+    }
+
     
     // immediate executing function that picks a color from main colors to be the rgb value in the header
-    const generateSecretColor = (function secretColor(){
-        rgbDisplay.textContent = colorDisplay[(Math.floor(Math.random() * colorDisplay.length))].style.backgroundColor;
-        return secretColor;
+    function generateSecretColor(){
+        rgbDisplay.textContent = colorDisplay[(Math.floor(Math.random() * mode))].style.backgroundColor;
+    }
+    
+    // main function no need to call loads once on its own to setup game.
+    (function(){
+        generateMainColors();
+        generateSecretColor();
     })();
 
     // event handler that responds if user picks the right or wrong color from main colors
-    for(var i = 0; i < colorDisplay.length; i++){
+    for(var i = 0; i < mode; i++){
         colorDisplay[i].addEventListener('click', function(){
             console.log(this.style.backgroundColor);
             if(this.style.backgroundColor === rgbDisplay.textContent ){
                 console.log("you picked the secret color");
                 message.textContent = "Correct!";
                 header.style.backgroundColor = this.style.backgroundColor;
+                for(var i = 0; i < mode; i++){
+                    colorDisplay[i].style.backgroundColor = this.style.backgroundColor;
+                }
             }else{
                 message.textContent = "Try again";
+                this.style.backgroundColor = "#000"
             }
         });
     }
@@ -63,13 +74,22 @@ document.addEventListener('DOMContentLoaded', function(){
     // easy mode needs work 
     // all through there are only 3 colors to pick from the arrary still holds 6 colors.
     easyMode.addEventListener('click', function(){
-        for(var i = 3; i < colorDisplay.length; i++){
-            colorDisplay[i].remove();
+        for(var i = 3; i < mode; i++){
+            colorDisplay[i].style.display = "none";
         }
+        mode = 3;
         reset();
         console.log(colorDisplay);
     });
 
+    hardMode.addEventListener('click', function(){
+        mode = 6;
+        for(var i = 3; i < mode; i++){
+            colorDisplay[i].style.display = "block";
+        }
+        reset();
+        console.log(colorDisplay);
+    })
 });
 
 // easymode
