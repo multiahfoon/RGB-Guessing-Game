@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const newColors = document.querySelector('#newColors');
     const easyMode = document.querySelector('#easyMode');
     const hardMode = document.querySelector('#hardMode');
+    // mode keeps track of how many buttons are in main secction.
     let mode = 6;
 
-    // generates a rbg string
+    // generates a rbg string.
     function rgbColorGenerator(){
         const generateNum = [];
         let rgbString;
@@ -21,26 +22,26 @@ document.addEventListener('DOMContentLoaded', function(){
         return rgbString;
     };
 
-    // immediate executing function that generates the main colors to pick from
+    // function that generates the colors in main section.
     function generateMainColors(){
         for(var i = 0; i < mode; i++){
             colorDisplay[i].style.backgroundColor = rgbColorGenerator();
         }
     }
 
-    
-    // immediate executing function that picks a color from main colors to be the rgb value in the header
+    // function that picks a color from main colors to be the rgb value in the header.
     function generateSecretColor(){
         rgbDisplay.textContent = colorDisplay[(Math.floor(Math.random() * mode))].style.backgroundColor;
     }
     
-    // main function no need to call loads once on its own to setup game.
+    // this function does not need to be called.
+    // this function loads once on its own to setup game.
     (function(){
         generateMainColors();
         generateSecretColor();
     })();
 
-    // event handler that responds if user picks the right or wrong color from main colors
+    // event handler that responds if user picks the right or wrong color from main colors.
     for(var i = 0; i < mode; i++){
         colorDisplay[i].addEventListener('click', function(){
             console.log(this.style.backgroundColor);
@@ -48,17 +49,18 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log("you picked the secret color");
                 message.textContent = "Correct!";
                 header.style.backgroundColor = this.style.backgroundColor;
+                // loop that sets all buttons in main section to be the same as the secret color.
                 for(var i = 0; i < mode; i++){
                     colorDisplay[i].style.backgroundColor = this.style.backgroundColor;
                 }
             }else{
                 message.textContent = "Try again";
+                // background color set to match background to look like button is removed.
                 this.style.backgroundColor = "#000"
             }
         });
     }
 
-    
     function reset(){
         console.log("button working!");
         generateMainColors();
@@ -71,8 +73,6 @@ document.addEventListener('DOMContentLoaded', function(){
         reset();
     });
 
-    // easy mode needs work 
-    // all through there are only 3 colors to pick from the arrary still holds 6 colors.
     easyMode.addEventListener('click', function(){
         for(var i = 3; i < mode; i++){
             colorDisplay[i].style.display = "none";
