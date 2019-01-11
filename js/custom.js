@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     easyMode.addEventListener('click', function(){
+        easyMode.classList.toggle('selected');
+        hardMode.classList.remove('selected');
         for(var i = 3; i < mode; i++){
             colorDisplay[i].style.display = "none";
         }
@@ -83,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     hardMode.addEventListener('click', function(){
+        easyMode.classList.remove('selected');
+        hardMode.classList.toggle('selected');
         mode = 6;
         for(var i = 3; i < mode; i++){
             colorDisplay[i].style.display = "block";
