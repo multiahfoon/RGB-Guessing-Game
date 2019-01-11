@@ -8,7 +8,9 @@ A fun game about colors. You are given 3 to 6 colors to pick from. Guess the cor
 
 ### __CSS:__ 
 
-* Styling near completion with use of CSS-Grid.
+* Css-grid implement.
+* Styling complete.
+
 
 ### __Javascript:__ 
 
@@ -16,3 +18,4 @@ A fun game about colors. You are given 3 to 6 colors to pick from. Guess the cor
 * Game now responds if picked color is correct or incorrect via message in navigation bar.
 * Header background color updates when correct color is picked.
 * New colors button generates new colors to pick from and updates RGB value in header.
+* Easy and hard buttons now work. 
